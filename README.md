@@ -15,7 +15,7 @@ For install this package, just simply type below:
 go install https://github.com/TerryFunggg/gotopull.git
 ```
 ## Usage
-If you first time install this pacakge, run command once:
+If first time install this packge, run command once:
 ```
 gotopull
 ```
@@ -31,7 +31,7 @@ Save it. And run the command again:
 ```
 gotopull
 ```
-Script will run git pull inside each list directory. If some reason git fail to pull, it will show the directory at the end.
+Script will run git pull inside each list directory. If some reason git fail to pull, it will show the directory path at the end.
 
 ## TODO
 - [ ] support custom config file
