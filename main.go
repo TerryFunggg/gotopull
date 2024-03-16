@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
@@ -47,12 +48,14 @@ func main() {
 		return
 	}
 
-	if _, err := os.Stat(home + "/" + CONFIGFILE); err != nil {
-		os.Create(home + "/" + CONFIGFILE)
+    file_name := filepath.Join(home, CONFIGFILE)
+
+	if _, err := os.Stat(file_name); err != nil {
+		os.Create(file_name)
 		fmt.Println("No config file, create " + CONFIGFILE + " in home directory. Please update config file.")
 	}
 
-	file, err := os.Open(home + "/" + CONFIGFILE)
+	file, err := os.Open(file_name)
 	CheckErr(err)
 
 	defer file.Close()
