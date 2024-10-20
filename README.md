@@ -12,7 +12,7 @@ And $GOBIN or `~/go/bin` should included in your $PATH
 
 For install this package, just simply type below:
 ```sh
-go install https://github.com/TerryFunggg/gotopull.git
+go install github.com/terryfunggg/gotopull@latest
 ```
 ## Usage
 If first time install this packge, run command once:
