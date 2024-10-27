@@ -48,7 +48,7 @@ func main() {
 		return
 	}
 
-    file_name := filepath.Join(home, CONFIGFILE)
+	file_name := filepath.Join(home, CONFIGFILE)
 
 	if _, err := os.Stat(file_name); err != nil {
 		os.Create(file_name)
@@ -89,10 +89,14 @@ func main() {
 
 	for _, path := range filesPath {
 		result, err := ExecCommand(path, "git", []string{"pull"})
+		branch, _ := ExecCommand(path, "git", []string{"branch", "--show-current"})
 		if err != nil {
-			pullFailFilePath = append(pullFailFilePath, path)
+			pullFailFilePath = append(pullFailFilePath, fmt.Sprintf("%s(%s)", branch[0]))
 		} else {
-			fmt.Printf("Success Pull %s : %s \n", path, result)
+			fmt.Printf("Success Pull %s [%s] :\n", path, branch[0])
+			for i := 0; i < len(result); i++ {
+				fmt.Println(result[i])
+			}
 		}
 
 	}
